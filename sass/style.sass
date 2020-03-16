@@ -1,0 +1,545 @@
+@import reset
+// Font Weights : 500,700
+// -----------------------Colors -----------------------------------//
+//Primary
+$Cyan: hsl(180, 66%, 49%)
+$darkviolet: hsl(257, 27%, 26%)
+//Secondary
+$Red: hsl(0, 87%, 67%)
+//Neutral
+$Gray: hsl(0, 0%, 75%)
+$grayishViolet: hsl(257, 7%, 63%)
+$verydarkBlue: hsl(255, 11%, 22%)
+$verydarkViolet: hsl(260, 8%, 14%)
+*
+    font-family: 'Poppins', sans-serif
+body
+    font-size: 18px
+    background-color: #90909011
+p
+    color: $grayishViolet
+nav
+    display: flex
+    justify-content: space-between
+    position: relative
+    margin: 30px 20px;
+    z-index: 999
+    button
+        padding: 0 10px
+        background-color: transparent
+        border: none
+        span
+            font-size: 22px
+    .menu-lists
+        position: absolute
+        display: flex
+        flex-direction: column
+        justify-content: center
+        width: 100%
+        top: 60px
+        background-color: $darkviolet
+        transform: scaleY(0)
+        transform-origin: top
+        text-align: center
+        border-radius: 18px
+        overflow: hidden
+        transition: transform .5s
+        
+    ul
+        list-style-type: none
+        li
+            margin: 20px
+            a
+                display: flex
+                flex-direction: column
+                text-decoration: none
+                font-weight: 700
+                color: white
+    .active
+        transform: scaleY(1)
+        
+    .sign-up
+        background-color: $Cyan
+        border-radius: 25px
+        padding: 10px 0
+    .login
+        border-top: 1px solid #4b4b4b
+        padding-top: 40px
+header
+    overflow: hidden
+    .illustration-working 
+        img
+            max-width: 130%
+            margin-left: 30px
+            z-index: -1
+    .main-content
+        display: flex
+        flex-direction: column
+        h1,p
+            text-align: center
+        p
+            width: 95%
+            margin: 10px auto
+        .main-title
+            display: flex
+            flex-direction: column
+        button
+            padding: 16px 35px;
+            margin: 25px 0px 60px 0px;
+            align-self: center
+            border-radius: 25px
+            border: none
+            font-size: 1.2rem
+            font-weight: 700
+            color: white
+            background-color: $Cyan
+    .shorten-it
+        background-image: url('/images/bg-shorten-mobile.svg');
+        background-color: $darkviolet;
+        width: 80%;
+        margin: 0 auto
+        padding: 10px 0
+        border-radius: 10px
+        background-size: 225px
+        background-position: right
+        background-repeat: no-repeat
+        form
+            display: flex
+            flex-direction: column
+        input,button
+            width: 85%
+            height: 42px
+            margin: 5px auto
+            border-radius: 8px
+            border: none
+        .invaild::placeholder
+            color: $Red
+        button
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            background-color: $Cyan
+            color: white
+            font-weight: 700
+            font-size: 1.1rem
+.base-link
+    padding: 12px
+    a
+        color: black
+.shorten-links-list
+    margin: 30px auto;
+    width: 80%
+    background-color: white
+    list-style-type: none
+    border-radius: 5px
+    li
+        div
+            a
+                font-size: 1rem
+    .shorten-link
+        display: flex
+        position: relative
+        flex-direction: column
+        border-top: 1px solid $grayishViolet
+        margin-top: 3px
+        button
+            align-self: center
+            width: 95%
+            height: 40px
+            background-color: $Cyan
+            border: none
+            border-radius: 8px
+            color: white
+            font-size: 1rem
+            font-weight: 700
+            margin-bottom: 12px
+            cursor: pointer
+        .clicked-btn
+            background-color: $darkviolet
+        a
+            color: $Cyan
+            margin: 12px
+.warning
+    width: 85%
+    margin: 0 auto
+    color: $Red
+    font-size: 0.8rem
+    
+.advanced-statistics
+    margin-top: 50px
+    h2,p
+        text-align: center
+        margin: 40px auto
+    p   
+        width: 60%
+.features
+    display: flex
+    flex-direction: column
+    .feature
+        padding: 65px 0
+        width: 90%
+        margin: 35px auto
+        background-color: white
+        position: relative
+        h3,p
+            text-align: center
+        h3
+            margin-bottom: 40px
+    .feature-icon
+        position: absolute
+        top: 0
+        right: 50%
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-top: -40px
+        transform: translateX(50%)
+        border-radius: 50%
+        height: 70px
+        width: 70px
+        background-color: $darkviolet
+    .line
+        height: 100%
+        width: 10px
+        background-color: $Cyan
+        position: absolute
+        top: -50%
+        right: 50%
+        transform: translateX(50%)
+        z-index: -1
+.boost-links
+    display: flex
+    flex-direction: column
+    background-image: url('/images/bg-boost-mobile.svg');
+    background-color: $darkviolet
+    background-size: 56vh
+    align-self: center
+    padding: 75px 0
+    h4
+        text-align: center
+        color: white
+        font-size: 1.4rem
+    button
+        width: 50%
+        align-self: center
+        height: 45px
+        margin-top: 10px
+        background-color: $Cyan
+        border: transparent
+        color: white
+        font-size: 1.1rem
+        font-weight: 700
+        border-radius: 25px
+footer
+    display: flex
+    flex-direction: column
+    align-items: center
+    background-color: $verydarkBlue
+    padding: 45px 0
+    .footer-items
+        display: flex
+        flex-direction: column
+        align-items: center
+        p
+            color: white
+            margin: 20px 0
+        a
+            color: $grayishViolet
+            text-decoration: none
+            transition: color .5s
+        a:hover
+            color: $Cyan
+    .footer-icons
+        flex-direction: row
+        font-size: 1.5rem
+        margin: 30px 0
+        span
+            margin: 0 8px
+.attribution
+    text-align: center
+    a
+        text-decoration: none
+        color: $Red
+
+@media (min-width: 992px)
+    header
+        margin: 0 auto
+        .illustration-working
+            img
+                height: 60vh
+                margin-left: 0
+        nav
+            display: flex
+            position: static
+            margin: 35px auto
+            width: 90%
+            button
+                padding: 0 0px
+                display: none
+        .logo-shortly
+            align-self: center
+            margin-right: 50px
+        .menu-lists
+            position: static
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            top: 0
+            background-color: transparent
+            transform: scaleY(1)
+            transform-origin: 0
+            text-align: left
+            border-radius: none
+            transition: inherit
+            overflow: visible
+            .menu-left-list
+                display: flex
+                flex-direction: row
+                align-self: center
+                a
+                    color: $Gray
+                    transition: color .5s
+                a:hover
+                    color: $verydarkBlue
+            .menu-right-list
+                display: flex
+                flex-direction: row
+                margin-right: 50px
+                align-self: center
+                .login
+                    border-top: none
+                    padding-top: 0px
+                    align-self: center
+                    a
+                        color: $Gray
+                        transition: color .5s
+                    a:hover
+                        color: $verydarkBlue
+                .sign-up
+                    display: flex
+                    background-color: $Cyan
+                    padding: 10px 30px
+                    cursor: pointer
+                    transition: opacity .3s
+                    a
+                        color: white
+                .sign-up:hover
+                    opacity: 0.8
+        .main-content
+            flex-direction: row-reverse
+            justify-content: space-between
+            align-items: center
+            width: 90%
+            margin: 0 auto
+        .main-title
+            h1
+                text-align: left
+                font-size: 3.4rem
+                letter-spacing: 2px
+                width: 92%
+            p
+                text-align: left
+                width: 60%
+                margin: 0px 0px
+            button
+                align-self: flex-start
+                padding: 10px 35px
+                font-size: 1.1rem
+                transition: opacity .5s
+                cursor: pointer
+            button:hover
+                opacity: 0.8
+        .shorten-it
+            padding: 35px
+            width: 90%
+            display: flex
+            flex-direction: column
+            background-image: url('/images/bg-shorten-desktop.svg');
+            background-size: cover
+            form
+                flex-direction: row
+            button
+                width: 15%
+                margin-left: 15px
+                cursor: pointer
+                font-size: 0.9rem
+                transition: opacity .5s
+            button:hover
+                opacity: 0.8
+            .invaild
+                input::placeholder
+                    color: $Red
+        .warning
+            width: 100%
+    .shorten-links-list
+        width: 90%
+        .shorten-link
+            display: grid
+            grid-template-columns: 2fr 1fr
+            border: none
+            position: static
+        button
+            margin-bottom: 0
+        .card-link
+            display: grid
+            grid-template-columns: 1fr auto
+            padding: 10px 5px
+    .advanced-statistics
+        h2
+            font-size: 2rem
+        p
+            width: 40%
+            margin: 0 auto
+    .features
+        display: flex
+        width: 100%
+        margin: 100px auto
+        flex-direction: row
+        position: relative
+        align-items: flex-start
+        justify-content: center
+        .feature
+            margin: 0 20px
+            width: 100%
+            padding: 45px 30px
+            transition: .10s
+            h3,p
+                text-align: left
+            h3
+                font-size: 1rem
+            p
+                font-size: 0.9rem
+        .detailed
+            margin-top: 60px
+        .fully
+            margin-top: 110px
+        .feature-icon
+            top: 0
+            left: 3%
+            transform: translateX(0%)
+            height: 70px
+            width: 70px
+        .line
+            height: 10px
+            width: 100px
+            background-color: $Cyan
+            position: absolute
+            top: 50%
+            right: 100%
+            transform: translateY(50%)
+            z-index: -1
+        .line-detailed
+            top: 66%
+            transform: translateY(0%)
+    .boost-links
+        background-image: url('/images/bg-boost-desktop.svg');
+        background-size: cover
+        h4
+            font-size: 1.8rem
+        button
+            width: 20%
+            margin-top: 20px
+            transition: opacity .5s
+            cursor: pointer
+        button:hover
+            opacity: 0.8
+    footer
+        flex-direction: row
+        justify-content: space-between
+        padding: 35px
+        align-items: flex-start
+    .footer-logo
+        align-self: center
+    .footer-items
+        display: flex
+        p
+            color: white
+            margin: 20px 0
+        a
+            color: $grayishViolet
+            text-decoration: none
+    .footer-icons
+        flex-direction: row
+        align-self: center
+        margin: 10px 0
+@media (min-width: 1200px)
+    header
+        .illustration-working
+            img
+                height: 70vh
+        .main-title
+            h1
+                font-size: 3.5rem
+                width: 87%
+        .shorten-it
+            form
+                flex-direction: row
+            button,input
+                padding: 25px
+            button
+                width: 15%
+                margin-left: 15px
+                cursor: pointer
+                font-size: 1rem
+    .advanced-statistics
+        h2
+            font-size: 2rem
+        p
+            width: 29%
+            margin: 0 auto
+    .features
+        width: 70%
+        .feature
+            width: 90%
+            padding: 60px 30px
+            box-shadow: 0 0 8px #e2e2e2
+            transition: box-shadow .5s
+            h3,p
+                text-align: left
+            h3
+                font-size: 1.2rem
+            p
+                font-size: 1rem
+        .feature:hover
+            box-shadow: 1px 5px 10px #a0a0a0
+        .detailed
+            margin-top: 60px
+        .fully
+            margin-top: 120px
+    .boost-links
+        h4
+            font-size: 2rem
+        button
+            width: 10%
+            margin-top: 30px
+    footer
+        flex-direction: row
+        justify-content: space-evenly
+        padding: 100px 0
+        align-items: center
+    .footer-logo
+        align-self: start
+        margin: 20px 0
+    .footer-items
+        display: flex
+        align-self: start
+        p
+            color: white
+            margin: 10px 0
+            align-self: start
+        a
+            color: $grayishViolet
+            text-decoration: none
+            align-self: start
+    .footer-icons
+        flex-direction: row
+        align-self: start
+        margin: 10px 0
+        img
+            margin: 0 8px
+.attribution
+    padding: 25px
+        
+    
+            

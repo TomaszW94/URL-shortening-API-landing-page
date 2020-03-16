@@ -159,7 +159,7 @@ header .main-content button {
 }
 
 header .shorten-it {
-  background-image: url("/images/bg-shorten-mobile.svg");
+  background: url("../images/bg-shorten-mobile.svg");
   background-color: #3b3054;
   width: 80%;
   margin: 0 auto;
@@ -370,7 +370,7 @@ header .shorten-it button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-image: url("/images/bg-boost-mobile.svg");
+  background-image: url("../images/bg-boost-mobile.svg");
   background-color: #3b3054;
   background-size: 56vh;
   -ms-flex-item-align: center;
@@ -624,7 +624,7 @@ footer .footer-icons span {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    background-image: url("/images/bg-shorten-desktop.svg");
+    background-image: url("../images/bg-shorten-desktop.svg");
     background-size: cover;
   }
   header .shorten-it form {
@@ -752,7 +752,7 @@ footer .footer-icons span {
             transform: translateY(0%);
   }
   .boost-links {
-    background-image: url("/images/bg-boost-desktop.svg");
+    background-image: url("../images/bg-boost-desktop.svg");
     background-size: cover;
   }
   .boost-links h4 {

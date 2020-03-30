@@ -50,7 +50,7 @@ const createElements = () => {
         aBaselink.innerText = $input_shorten.value.toLowerCase();
         aShortenlink.setAttribute("href", $input_shorten.value.toLowerCase());
         aShortenlink.innerText = $input_shorten.value.toLowerCase();
-        aShortenlink.id = "new_link";
+        aShortenlink.className = "new_link";
         const btn_shortlink = document.createElement("button");
         btn_shortlink.className = "btn_shortLink";
         divShortenLink.appendChild(btn_shortlink);
@@ -59,22 +59,22 @@ const createElements = () => {
         $pWarning.innerText = "";
 
         //function copyToClipBoard
-        function copyToClipboard() {
-
-            new ClipboardJS('.btn_shortLink', {
-                text: function (e) {
-                    let select_element = document.querySelector('#new_link');
-                    return select_element.innerHTML;
-                }
-            });
-
-            btn_shortlink.classList.add('clicked-btn');
-            btn_shortlink.innerText = "Copied!";
+        function copyToClipboard(e) {
+            e.preventDefault();
+            const btnCopy = e.target;
+            const linkShortCopy = event.target.parentElement.querySelector('.new_link');
+            const textArea = document.createElement("textarea");
+            textArea.value = linkShortCopy.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            textArea.remove();
+            btnCopy.classList.add('clicked-btn');
+            btnCopy.innerText = "Copied!";
         }
 
         //Copy button
         btn_shortlink.addEventListener('click', copyToClipboard);
-
 
         //Axios method POST
         axios.post('https://rel.ink/api/links/', {

@@ -226,10 +226,12 @@ header .shorten-it button {
 
 .base-link {
   padding: 12px;
+  overflow: hidden;
 }
 
 .base-link a {
   color: black;
+  font-size: 30px;
 }
 
 .shorten-links-list {
@@ -253,6 +255,8 @@ header .shorten-it button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
   border-top: 1px solid #9e9aa7;
   margin-top: 3px;
 }

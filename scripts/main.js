@@ -42,8 +42,6 @@ const createElements = (e) => {
     divShortenLink.appendChild(aShortenlink);
     aBaselink.setAttribute("href", $input_shorten.value.toLowerCase());
     aBaselink.innerText = $input_shorten.value.toLowerCase();
-    aShortenlink.setAttribute("href", $input_shorten.value.toLowerCase());
-    aShortenlink.innerText = $input_shorten.value.toLowerCase();
     aShortenlink.className = "new_link";
     const btn_shortlink = document.createElement("button");
     btn_shortlink.className = "btn_shortLink";
@@ -68,17 +66,23 @@ const createElements = (e) => {
 
 //Axios function POST
 const axiosPOST = () => {
-    axios.post('https://rel.ink/api/links/', {
+    if (navigator.onLine) {
+        axios.post('https://rel.ink/api/links/', {
             "url": $input_shorten.value
         })
         .then(function (res) {
-            document.querySelector('.new_link').innerText = `https://rel.ink/${res.data.hashid}`;
+            document.querySelector('.new_link').setAttribute("href", `https://rel.ink/${res.data.hashid}`);
+            document.querySelector('.new_link').textContent = `https://rel.ink/${res.data.hashid}`;
             $input_shorten.value = '';
             $input_shorten.classList.remove('invaild');
         })
         .catch(function (err) {
             console.log(err);
         })
+    } else {
+        document.querySelector('.new_link').textContent = "error, check internet connection";
+        document.querySelector('.new_link').style.color = "hsl(0, 87%, 67%)";
+    }
 };
 
 //function copyToClipBoard
@@ -117,3 +121,4 @@ $input_shorten.addEventListener('input', () => {
     }
 
 });
+

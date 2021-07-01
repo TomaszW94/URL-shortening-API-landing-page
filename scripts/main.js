@@ -43,15 +43,13 @@ const createElements = (e) => {
     aBaselink.setAttribute("href", $input_shorten.value.toLowerCase());
     aBaselink.innerText = $input_shorten.value.toLowerCase();
     aShortenlink.className = "new_link";
+    aShortenlink.textContent = "Waiting...";
     const btn_shortlink = document.createElement("button");
     btn_shortlink.className = "btn_shortLink";
     divShortenLink.appendChild(btn_shortlink);
     btn_shortlink.innerText = "Copy";
     //delete warning message
     $pWarning.innerText = "";
-
-    //axios POST
-    axiosPOST();
 
     //remove input value
     $input_shorten.value = "";
@@ -61,29 +59,19 @@ const createElements = (e) => {
 
     //remove event listener
     $btn_shortenit.removeEventListener('click', createElements);
-
 }
 
-//Axios function POST
-const axiosPOST = () => {
-    if (navigator.onLine) {
-        axios.post('https://rel.ink/api/links/', {
-            "url": $input_shorten.value
-        })
-        .then(function (res) {
-            document.querySelector('.new_link').setAttribute("href", `https://rel.ink/${res.data.hashid}`);
-            document.querySelector('.new_link').textContent = `https://rel.ink/${res.data.hashid}`;
-            $input_shorten.value = '';
-            $input_shorten.classList.remove('invaild');
-        })
-        .catch(function (err) {
-            console.log(err);
-        })
-    } else {
-        document.querySelector('.new_link').textContent = "error, check internet connection";
-        document.querySelector('.new_link').style.color = "hsl(0, 87%, 67%)";
-    }
-};
+// function get short link
+const getShortLink = function (link) {
+    const url = `https://api.shrtco.de/v2/shorten?url=${link}`;
+    fetch(url)
+      .then(res => res.json())
+      .then(res => {
+        document.querySelector(".new_link").textContent = res.result.short_link;
+        document.querySelector(".new_link").setAttribute('href',`http://${res.result.short_link}`);
+        document.querySelector(".new_link").setAttribute('target','_blank');
+      });
+  };
 
 //function copyToClipBoard
 function copyToClipboard(e) {
@@ -111,6 +99,7 @@ $input_shorten.addEventListener('input', () => {
     if (regexpHttp.test($input_shorten.value.toLowerCase())) {
         if (regexpLinkV.test($input_shorten.value.toLowerCase())) {
             $btn_shortenit.addEventListener('click', createElements);
+            getShortLink($input_shorten.value);
             $pWarning.textContent = "";
         } else {
             $pWarning.textContent = "Enter the correct link";

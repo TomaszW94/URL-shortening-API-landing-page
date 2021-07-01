@@ -262,10 +262,19 @@ header .shorten-it button {
 }
 
 .shorten-links-list .shorten-link button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
   width: 95%;
+  width: 80px;
   height: 40px;
   background-color: #2acfcf;
   border: none;
